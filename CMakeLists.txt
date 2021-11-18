@@ -24,6 +24,7 @@ project(lab-01-parser VERSION 0.1.0)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
+add_compile_definitions(JFILE="${CMAKE_CURRENT_SOURCE_DIR}/students.json")
 
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
@@ -38,6 +39,7 @@ add_library(${PROJECT_NAME} STATIC
 
 add_executable(demo
         ${CMAKE_CURRENT_SOURCE_DIR}/demo/main.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/student.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -51,9 +53,9 @@ target_link_libraries(demo ${PROJECT_NAME})
 if(BUILD_TESTS)
   add_executable(tests
           ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
-          ${CMAKE_CURRENT_SOURCE_DIR}/students.json
   )
   target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
+  target_link_libraries(tests ${PROJECT_NAME})
   enable_testing()
   add_test(NAME unit_tests COMMAND tests)
 endif()

@@ -1,3 +1,5 @@
+// Copyright 2020 Your Name <your_email>
+
 #include "student.hpp"
 
 auto get_name(const json& j) -> std::string {
@@ -40,7 +42,7 @@ void from_json(const json& j, student_t& s) {
 
 std::string cut(std::string str){
   for (int i = str.length() - 1; i > 0; i -= 1){
-    if(str[i] == '0')  str.erase(i, 1);
+    if (str[i] == '0')  str.erase(i, 1);
   }
   return str;
 }
@@ -168,7 +170,6 @@ void print(const std::vector<student_t>& students, std::ostream& os){
 
 void print(const student_t& student, std::ostream& os, unsigned name,
            unsigned group, unsigned avg, unsigned debt) {
-
   os << "|" << student.name << cell(name - len_name(student)) << "|";
 
   if (student.group.type() == typeid(std::string)) { // вывод группы
