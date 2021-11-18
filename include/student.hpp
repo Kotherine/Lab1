@@ -1,7 +1,7 @@
 // Copyright 2020 Your Name <your_email>
 
-#ifndef INCLUDE_HEADER_HPP_
-#define INCLUDE_HEADER_HPP_
+#ifndef INCLUDE_STUDENT_HPP_
+#define INCLUDE_STUDENT_HPP_
 
 #include <fstream>
 #include <iostream>
@@ -33,11 +33,14 @@ unsigned max_len_group(const std::vector<student_t>& students);
 unsigned max_len_avg(const std::vector<student_t>& students);
 unsigned max_len_debt(const std::vector<student_t>& students);
 std::string delimiter(unsigned l);
-std::string border(unsigned len_name, unsigned len_group, unsigned len_avg, unsigned len_debt);
-void head(unsigned len_name, unsigned len_group, unsigned len_avg, unsigned len_debt, std::ostream& os);
+std::string border(unsigned len_name, unsigned len_group, unsigned len_avg,
+                   unsigned len_debt);
+void head(unsigned len_name, unsigned len_group, unsigned len_avg,
+          unsigned len_debt, std::ostream& os);
 std::string cell(unsigned l);
 void print(const std::vector<student_t>& students, std::ostream& os);
-void print(const student_t& student, std::ostream& os, unsigned len_name, unsigned len_group, unsigned len_avg, unsigned len_debt);
+void print(const student_t& student, std::ostream& os, unsigned len_name,
+           unsigned len_group, unsigned len_avg, unsigned len_debt);
 
 
-#endif // INCLUDE_HEADER_HPP_
+#endif // INCLUDE_STUDENT_HPP_

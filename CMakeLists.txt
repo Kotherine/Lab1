@@ -46,7 +46,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 
 target_link_libraries(demo ${PROJECT_NAME})
-target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json)
 
 
 if(BUILD_TESTS)
@@ -96,3 +95,5 @@ install(EXPORT "${PROJECT_NAME}-targets"
   NAMESPACE "${PROJECT_NAME}::"
   DESTINATION "lib/cmake"
 )
+
+target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json)
