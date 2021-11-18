@@ -1,26 +1,26 @@
 #include <gtest/gtest.h>
 #include "student.hpp"
 
-const std::string &jsonPath = "/home/ekaterina/lab1/lab-01-parser/tests/students.json";
+const std::string &jsonPath = "/home/ekaterina/lab1/lab-01-parser/students.json";
 
 TEST(ParserTest, EmptyPath) {
-  ASSERT_FALSE(jsonPath.empty());
+  EXPECT_FALSE(jsonPath.empty());
 }
 TEST(ParserTest, FileExists) {
   std::ifstream file{jsonPath};
-  ASSERT_FALSE(!file);
+  EXPECT_FALSE(!file);
 }
 TEST(ParserTest, ItemsInArray) {
   std::ifstream file{jsonPath};
   json data;
   file >> data;
-  ASSERT_TRUE( data.at("items").is_array());
+  EXPECT_TRUE( data.at("items").is_array());
 }
 TEST(ParserTest, TrueCount) {
   std::ifstream file{jsonPath};
   json data;
   file >> data;
-  ASSERT_EQ(data.at("items").size(), data.at("_meta").at("count").get<size_t>());
+  EXPECT_EQ(data.at("items").size(), data.at("_meta").at("count").get<size_t>());
 }
 
 TEST(ParserTest, TypeGroup) {
@@ -39,7 +39,7 @@ TEST(ParserTest, TypeGroup) {
     } else if (student.group.type() == typeid(size_t)) {
       res  = true;
     }
-    ASSERT_TRUE( res);
+    EXPECT_TRUE( res);
   }
 }
 
@@ -63,7 +63,7 @@ TEST(ParserTest, TypeAvg) {
     } else if(student.avg.type() == typeid(size_t)){
       res = true;
     }
-    ASSERT_TRUE( res);
+    EXPECT_TRUE( res);
   }
 }
 
@@ -85,6 +85,6 @@ TEST(ParserTest, TypeDebt) {
     } else if(student.debt.type() == typeid(std::vector<std::string>)){
       res = true;
     }
-    ASSERT_TRUE( res);
+    EXPECT_TRUE( res);
   }
 }

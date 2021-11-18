@@ -52,7 +52,7 @@ target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json)
 if(BUILD_TESTS)
   add_executable(tests
           ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
-          ${CMAKE_CURRENT_SOURCE_DIR}/tests/students.json
+          ${CMAKE_CURRENT_SOURCE_DIR}/students.json
   )
   target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
   enable_testing()
