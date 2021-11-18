@@ -4,7 +4,7 @@
 
 int main() {
   const std::string &jsonPath =
-      "/home/ekaterina/lab1/lab-01-parser/students.json";
+      "/home/ekaterina/lab1/lab-01-parser/files/students.json";
   if (jsonPath.empty()) throw std::runtime_error{"Empty file path!"};
 
   std::ifstream file{jsonPath};

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "student.hpp"
 
-const std::string &jsonPath = "/home/ekaterina/lab1/lab-01-parser/students.json";
+const std::string &jsonPath = JFile;
 
 TEST(ParserTest, EmptyPath) {
   EXPECT_FALSE(jsonPath.empty());
